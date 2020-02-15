@@ -35,14 +35,22 @@
 class Solution {
 public:
     int lengthOfLastWord(string s) {
-        int ret = 0, i;
-        for(i = s.find_last_not_of(" ")-1; i >= 0; --i) {
-            if (s[i]==' ') {
-                ret = s.size() -1 - i;
-                break;
+        int res = 0;
+        
+        if(s.length() == 0)
+            return 0;
+        
+        for(int i = s.length()-1; i >= 0; i--)
+        {
+            if(s[i] != ' ')
+                res++;
+            else
+            {
+                if(res)
+                    break;
             }
         }
-        return ret;
+        return res;
     }
 };
 // @lc code=end
